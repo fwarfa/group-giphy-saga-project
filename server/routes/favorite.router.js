@@ -1,9 +1,13 @@
+require('dotenv').config();
 const express = require('express');
 const pool = require('../modules/pool');
+
+const axios = require('axios')
 
 const router = express.Router();
 
 // return all favorite images
+router.get();
 router.get('/', (req, res) => {
   let sqlQuery = `SELECT * FROM "favorites"`;
   pool.query(sqlQuery)
@@ -32,5 +36,7 @@ router.put('/:favId', (req, res) => {
 router.delete('/', (req, res) => {
   res.sendStatus(200);
 });
+
+
 
 module.exports = router;
