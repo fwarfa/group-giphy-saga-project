@@ -36,9 +36,18 @@ function* getGif() {
     }
 }
 
+// START 8/27/21
+function* fetchSearchResults() {
+    try{
+        const response = yield axios.get('/api/search')
+    }
+}
+
 // generator function
 function* watchSaga() {
     yield takeEvery('GET_GIF', getGif);
+    yield takeEvery('FETCH_SEARCH_RESULTS', fetchSearchResults )
+
 }
 
 // Create store instance
