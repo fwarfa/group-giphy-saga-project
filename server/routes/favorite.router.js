@@ -7,7 +7,7 @@ const axios = require('axios')
 const router = express.Router();
 
 // return all favorite images
-router.get();
+
 router.get('/', (req, res) => {
   let sqlQuery = `SELECT * FROM "favorites"`;
   pool.query(sqlQuery)
