@@ -9,7 +9,7 @@ function SearchGif () {
         <h1>Search for Giphy</h1>
         <input type="text" placeholder="search" onChange={(event) => setSearch(event.target.value)}
         />
-        <button onClick={searchGiPhy}></button>
+        <button onClick={searchGiPhy}>Search</button>
         </>
     )
 }
