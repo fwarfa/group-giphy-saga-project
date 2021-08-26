@@ -2,10 +2,10 @@ TODO LISIT
 
 [] SETUP
     [] CLIENT
-        [] Imports
-        [] Redux
-        [] Sagas
-        [] logger
+        [x] Imports
+        [x] Redux
+        [x] Sagas
+        [x] logger
         [] reducer
         [] components (atleast 3)
     [] SERVER
