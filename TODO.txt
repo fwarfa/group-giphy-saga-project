@@ -1,0 +1,30 @@
+TODO LISIT
+
+[] SETUP
+    [] CLIENT
+        [] Imports
+        [] Redux
+        [] Sagas
+        [] logger
+        [] reducer
+        [] components (atleast 3)
+    [] SERVER
+        [] fill in gaps
+    [] DATABASE
+        [] setup favories table
+            [] JOIN
+[] SEARCH VIEW
+    [] input
+    [] search button
+        [] API search endpoint
+    [] Display the results on DOM
+    [] button to FAVORITES
+        [] save url of GIF to database
+[] FAVORITES VIEW
+    [] GET saga of favorite GIFS
+        [] use favorite get route to get urls of favorited GIFs
+    [] PUT set category for favorite Image
+        [] drop down menu for category that matches datbase categories
+            [] only one category allowed
+        [] display catergory somewhere
+            [] diplay category in list with columns as different categories
