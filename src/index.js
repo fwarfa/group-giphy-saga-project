@@ -41,8 +41,13 @@ function* getGif() {
 
 function* fetchSearchResults(action) {
     try{
-        const response = yield axios.post('/api/search', action.payload);
-        console.log('api response', response.data);
+        console.log('action payload is', action.payload);
+        
+        const response = yield axios.get('/api/search', {
+            params: {
+                q: action.payload
+            }
+        });
 
         yield put({
             type: 'SET_SEARCH_RESULTS'

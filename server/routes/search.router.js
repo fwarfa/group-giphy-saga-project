@@ -7,12 +7,15 @@ const axios = require('axios')
 const router = express.Router();
 
 router.get('/', (req, res) => {
+    console.log(req.query);
+    
     axios({
       method: 'GET',
       url: 'http://api.giphy.com/v1/gifs/search',
       params: {
         api_key: process.env.GIPHY_API_KEY,
-        q
+        q: req.query.q,
+        limit: 2
       }
     })
     .then((response) => {
