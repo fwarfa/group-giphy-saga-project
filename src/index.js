@@ -15,6 +15,8 @@ const gifListReducer = (state = [], action) => {
     switch (action.type) {
         case 'SET_GIF':
             return action.payload;
+        case 'SET_SEARCH_RESULTS':
+            return action.payload
         default:
             return state;
     }
@@ -36,10 +38,19 @@ function* getGif() {
     }
 }
 
-// START 8/27/21
-function* fetchSearchResults() {
+
+function* fetchSearchResults(action) {
     try{
-        const response = yield axios.get('/api/search')
+        const response = yield axios.post('/api/search', action.payload);
+        console.log('api response', response.data);
+
+        yield put({
+            type: 'SET_SEARCH_RESULTS'
+        })
+    }
+    catch(err){
+        console.log('fetchSearchResults err');
+        
     }
 }
 

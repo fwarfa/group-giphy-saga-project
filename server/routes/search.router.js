@@ -11,7 +11,8 @@ router.get('/', (req, res) => {
       method: 'GET',
       url: 'http://api.giphy.com/v1/gifs/search',
       params: {
-        api_key: process.env.GIPHY_API_KEY
+        api_key: process.env.GIPHY_API_KEY,
+        q
       }
     })
     .then((response) => {
