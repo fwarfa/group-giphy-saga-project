@@ -12,11 +12,13 @@ const sagaMiddleware = createSagaMiddleware();
 
 // Reducers
 const gifListReducer = (state = [], action) => {
+    
     switch (action.type) {
         case 'SET_GIF':
             return action.payload;
         case 'SET_SEARCH_RESULTS':
-            return action.payload
+            console.log("SET SEARCH is",action.payload)
+            return action.payload;
         default:
             return state;
     }
@@ -50,7 +52,8 @@ function* fetchSearchResults(action) {
         });
 
         yield put({
-            type: 'SET_SEARCH_RESULTS'
+            type: 'SET_SEARCH_RESULTS',
+            payload: response.data
         })
     }
     catch(err){

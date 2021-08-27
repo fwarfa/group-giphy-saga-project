@@ -13,10 +13,10 @@ TODO LISIT
     [] DATABASE
         [] setup favories table
             [] JOIN
-[] SEARCH VIEW
-    [] input
-    [] search button
-        [] API search endpoint
+[x] SEARCH VIEW
+    [x] input
+    [x] search button
+        [x] API search endpoint
     [] Display the results on DOM
     [] button to FAVORITES
         [] save url of GIF to database
