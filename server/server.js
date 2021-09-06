@@ -9,6 +9,7 @@ const PORT = process.env.PORT || 5000;
 const favoriteRouter = require('./routes/favorite.router');
 const categoryRouter = require('./routes/category.router');
 const searchRouter = require('./routes/search.router');
+const googleRouter = require('./routes/google')
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -21,6 +22,7 @@ app.use(express.static('build'));
 app.use('/api/favorite', favoriteRouter);
 app.use('/api/category', categoryRouter);
 app.use('/api/search', searchRouter);
+app.use("/api/lawFirms", googleRouter);
 
 // Listen
 app.listen(PORT, () => {

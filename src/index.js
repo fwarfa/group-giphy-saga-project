@@ -24,6 +24,15 @@ const gifListReducer = (state = [], action) => {
     }
 } 
 
+const lawFirmReducer = (state=[], action) =>{
+    switch(action.type) {
+        case 'SET_GOOGLE_RESULTS':
+            return action.payload;
+        default:
+            return state
+    }
+}
+
 function* getGif() {
     try{
         const response = yield axios.get('/api/favorite');
@@ -40,6 +49,23 @@ function* getGif() {
     }
 }
 
+function* fetchLawFirmResults(action){
+    try{
+        const response = yield axios.get('/api/lawFirms', {
+            params: {
+                q: action.payload
+            }
+        });
+        yield put ({
+            type: 'SET_GOOGLE_RESULTS',
+            payload: response.data 
+        })
+    }
+    catch(error) {
+            console.log("GET /lawFirms error", error)
+
+    }
+}
 
 function* fetchSearchResults(action) {
     try{
@@ -66,13 +92,18 @@ function* fetchSearchResults(action) {
 function* watchSaga() {
     yield takeEvery('GET_GIF', getGif);
     yield takeEvery('FETCH_SEARCH_RESULTS', fetchSearchResults )
+    yield takeEvery("FETCH_LAWFIRM_RESULTS", fetchLawFirmResults)
 
 }
 
 // Create store instance
-const storeInstance = createStore(combineReducers({
-    gifListReducer
-}), applyMiddleware(logger, sagaMiddleware))
+const storeInstance = createStore(
+  combineReducers({
+    gifListReducer,
+    lawFirmReducer,
+  }),
+  applyMiddleware(logger, sagaMiddleware)
+);
 
 // run saga
 sagaMiddleware.run(watchSaga);
