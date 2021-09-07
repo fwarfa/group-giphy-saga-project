@@ -1,10 +1,11 @@
 import{useState} from 'react'
 import { useDispatch, useSelector } from "react-redux";
+import GoogleMaps from '../googleMaps/GoogleMaps';
 
 function SearchGif () {
     const giphyResults = useSelector(store => store.gifListReducer);
     const lawFirms = useSelector(store=> store.lawFirmReducer);
-    console.log(giphyResults, lawFirms)
+    console.log('lawFirm reducer is', lawFirms)
     const dispatch = useDispatch();
 
     let [search, setSearch] = useState();
@@ -30,6 +31,7 @@ function SearchGif () {
         },
       });
     }
+    
     return (
       <>
         <h1>Search for Giphy</h1>
@@ -40,13 +42,17 @@ function SearchGif () {
         />
         <button onClick={searchGiPhy}>Search</button>
         <div>
-          {giphyResults.map((searchItems) => {
+          {giphyResults.map((searchlocations) => {
             return (
               //  <iframe
-              //    src={searchItems.bitly_gif_url}
+              //    src={searchlocations.bitly_gif_url}
               //    class="giphy-embed"
               //  ></iframe>
-              <img key={searchItems.id} src={searchItems.images.original.url} alt="" />
+              <img
+                key={searchlocations.id}
+                src={searchlocations.images.original.url}
+                alt=""
+              />
             );
           })}
         </div>
@@ -69,7 +75,11 @@ function SearchGif () {
           />
           <button type="submit">Search for company</button>
         </form>
-
+        <br />
+         <GoogleMaps lawFirms={lawFirms} />
+       
+     
+        
       </>
     );
 }

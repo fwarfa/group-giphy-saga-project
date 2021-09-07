@@ -27,11 +27,11 @@ router.get("/", (req, res) => {
  console.log(config)
 
   axios(config)
-    .then(function (response) {
+    .then((response) => {
       console.log(JSON.stringify(response.data));
       res.send(response.data)
     })
-    .catch(function (error) {
+    .catch((error) => {
       console.log(error);
     });
 });

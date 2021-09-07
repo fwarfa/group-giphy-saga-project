@@ -1,7 +1,9 @@
 import React from 'react';
+import "bootstrap/dist/css/bootstrap.min.css";
 import GifList from '../GifList/GifList';
 import SearchGif from '../SearchGif/SearchGif';
 import { HashRouter as Router, Switch, Route, Link } from "react-router-dom";
+import GoogleMaps from '../googleMaps/GoogleMaps';
 
 function App(props) {
   return (

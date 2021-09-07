@@ -18,16 +18,17 @@ const gifListReducer = (state = [], action) => {
             return action.payload;
         case 'SET_SEARCH_RESULTS':
             console.log("SET SEARCH is",action.payload)
-            return action.payload;
+            return action.payload.results;
         default:
             return state;
     }
 } 
 
+
 const lawFirmReducer = (state=[], action) =>{
     switch(action.type) {
         case 'SET_GOOGLE_RESULTS':
-            return action.payload;
+            return action.payload.results[0].geometry.location;
         default:
             return state
     }
